@@ -1,7 +1,7 @@
 Package.describe({
     git: "https://github.com/henriquealbert/meteor-create-typed-collection",
     name: "hschmaiske:create-typed-collection",
-    version: "0.0.2",
+    version: "0.0.3",
     summary: "Create typed safe collections for Meteor",
     documentation: "README.md",
 });
@@ -15,5 +15,6 @@ Package.onUse(function (api) {
     api.use("ecmascript");
     api.use("typescript");
     api.use("zodern:types@1.0.0");
+    api.use("mongo");
     api.mainModule("src/index.ts");
 });
