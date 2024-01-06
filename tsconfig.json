@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "lib": ["DOM", "ESNext"],
+    "module": "ES6",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "strict": true,
+    "target": "ESNext"
+  },
+  "files": ["./src/index.ts"]
+}
