@@ -1,6 +1,6 @@
 {
     "name": "create-typed-collection",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "Create typed safe collections for Meteor",
     "main": "src/index.ts",
     "scripts": {
