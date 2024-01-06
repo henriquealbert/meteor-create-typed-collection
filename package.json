@@ -1,28 +1,28 @@
 {
-  "name": "create-typed-collection",
-  "version": "1.0.0",
-  "description": "Create typed safe collections for Meteor",
-  "main": "src/index.ts",
-  "scripts": {
-    "check-types": "npm install && tsc",
-    "postcheck-types": "npm prune --prod",
-    "test": "meteor test-packages ./ "
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/henriquealbert/meteor-create-typed-collection.git"
-  },
-  "keywords": [],
-  "author": "henriquealbert",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/henriquealbert/meteor-create-typed-collection/issues"
-  },
-  "homepage": "https://github.com/henriquealbert/meteor-create-typed-collection#readme",
-  "dependencies": {},
-  "devDependencies": {
-    "@types/meteor": "^2.9.7",
-    "typescript": "^4.9.5",
-    "zod": "^3.22.4"
-  }
+    "name": "create-typed-collection",
+    "version": "0.0.2",
+    "description": "Create typed safe collections for Meteor",
+    "main": "src/index.ts",
+    "scripts": {
+        "check-types": "npm install && tsc",
+        "postcheck-types": "npm prune --prod",
+        "test": "meteor test-packages ./ "
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/henriquealbert/meteor-create-typed-collection.git"
+    },
+    "keywords": [],
+    "author": "henriquealbert",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/henriquealbert/meteor-create-typed-collection/issues"
+    },
+    "homepage": "https://github.com/henriquealbert/meteor-create-typed-collection#readme",
+    "dependencies": {},
+    "devDependencies": {
+        "@types/meteor": "^2.9.7",
+        "typescript": "^4.9.5",
+        "zod": "^3.22.4"
+    }
 }

@@ -6,7 +6,7 @@ ecmascript-runtime@0.8.1
 ecmascript-runtime-client@0.12.1
 ecmascript-runtime-server@0.11.0
 fetch@0.1.4
-hschmaiske:create-typed-collection@0.0.1
+hschmaiske:create-typed-collection@0.0.2
 inter-process-messaging@0.1.1
 meteor@1.11.4
 modern-browsers@0.1.10
