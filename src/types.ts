@@ -15,7 +15,24 @@ export type CreateTypedCollectionParams<
 export type CreateRemoteCollectionParams<
     T extends ZodRawShape,
     U extends Record<string, (...args: any[]) => any>
-> = Omit<CreateTypedCollectionParams<T, U>, "instance"> & { stackName: string };
+> = {
+    stackName: string;
+    customCollectionMethods?: U;
+    name: string;
+    schema: ZodObject<T>;
+    _driver?: any;
+};
+
+export type CreateRemoteTypedCollection<
+    T extends ZodRawShape,
+    U extends Record<string, (...args: any[]) => any>
+> = {
+    mongoUrl: string;
+    stackName: string;
+    customCollectionMethods?: U;
+    name: string;
+    schema: ZodObject<T>;
+};
 
 export type ExtractMethodNames<
     U extends Record<string, (...args: any[]) => any>
