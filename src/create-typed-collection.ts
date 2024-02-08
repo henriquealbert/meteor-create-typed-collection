@@ -1,31 +1,19 @@
 import { Meteor } from "meteor/meteor";
 import { Mongo } from "meteor/mongo";
-import { ZodObject, ZodRawShape, z } from "zod";
+import { ZodRawShape, z } from "zod";
+import type {
+    CreateDbCollectionParams,
+    CreateTypedCollectionParams,
+    CustomMethods,
+    ExtractMethodNames,
+} from "./types";
 
-type createTypedCollectionParams<
-    T extends ZodRawShape,
-    U extends Record<string, (...args: any[]) => any>
-> = {
-    customCollectionMethods?: U;
-    name?: string;
-    instance?: Mongo.Collection<any>;
-    schema: ZodObject<T>;
-};
-
-// Infer the method names and their signatures
-type ExtractMethodNames<U extends Record<string, (...args: any[]) => any>> = {
-    [K in keyof U]: (...args: Parameters<U[K]>) => ReturnType<U[K]>;
-};
-
-type CustomMethods = {
-    [methodName: string]: (...args: any[]) => any;
-};
-
-function createDbCollection<T extends ZodRawShape>(
-    instance?: Mongo.Collection<any>,
-    name?: string
-): Mongo.Collection<T, T> {
-    if (instance && !name) {
+const createDbCollection = <T extends ZodRawShape>({
+    _driver,
+    instance,
+    name,
+}: CreateDbCollectionParams) => {
+    if (instance && !name && !_driver) {
         return instance as Mongo.Collection<T, T>;
     }
 
@@ -35,16 +23,25 @@ function createDbCollection<T extends ZodRawShape>(
         );
     }
 
-    if (!instance) {
+    if (!instance && !_driver) {
         return new Mongo.Collection<T, T>(name);
     }
 
+    if (!instance && _driver) {
+        return new Mongo.Collection<T, T>(name, {
+            // @ts-ignore
+            _driver,
+            _suppressSameNameError: true,
+            defineMutationMethods: false,
+        });
+    }
+
     throw new Error("Unexpected condition: Unable to create the collection");
-}
+};
 
 function validateCollectionParams(
-    name: string | undefined,
-    instance: Mongo.Collection<any> | undefined
+    name?: string,
+    instance?: Mongo.Collection<any>
 ): void {
     if (!name && !instance) {
         throw new Meteor.Error(
@@ -100,12 +97,17 @@ export function createTypedCollection<
     name,
     schema,
     instance,
-}: createTypedCollectionParams<T, U>) {
+    _driver,
+}: CreateTypedCollectionParams<T, U>) {
     try {
         validateCollectionParams(name, instance);
 
         type SchemaType = z.infer<typeof schema>;
-        const dbCollection = createDbCollection<SchemaType>(instance, name);
+        const dbCollection = createDbCollection<SchemaType>({
+            instance,
+            name,
+            _driver,
+        });
 
         // Use mapped types to infer method names and their signatures
         type MethodNames = ExtractMethodNames<U>;
