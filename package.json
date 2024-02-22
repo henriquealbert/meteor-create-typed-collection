@@ -6,7 +6,8 @@
     "scripts": {
         "check-types": "npm install && tsc",
         "postcheck-types": "npm prune --prod",
-        "test": "meteor test-packages ./ "
+        "test": "meteor test-packages ./ ",
+        "npm-latest": "ncu --interactive --format group"
     },
     "repository": {
         "type": "git",
@@ -21,8 +22,8 @@
     "homepage": "https://github.com/henriquealbert/meteor-create-typed-collection#readme",
     "dependencies": {},
     "devDependencies": {
-        "@types/meteor": "^2.9.7",
-        "typescript": "^4.9.5",
+        "@types/meteor": "^2.9.8",
+        "typescript": "^5.3.3",
         "zod": "^3.22.4"
     }
 }
