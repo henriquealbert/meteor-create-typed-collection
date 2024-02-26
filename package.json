@@ -1,10 +1,10 @@
 {
     "name": "create-typed-collection",
-    "version": "0.0.5",
+    "version": "1.0.1",
     "description": "Create typed safe collections for Meteor",
     "main": "src/index.ts",
     "scripts": {
-        "check-types": "npm install && tsc",
+        "check-types": "tsc --noEmit",
         "postcheck-types": "npm prune --prod",
         "test": "meteor test-packages ./ ",
         "npm-latest": "ncu --interactive --format group"
