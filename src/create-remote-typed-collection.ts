@@ -1,5 +1,5 @@
 import { newRemoteCollectionDriver } from "./new-remote-collection-driver";
-import { ZodRawShape, z } from "zod";
+import { ZodRawShape } from "zod";
 import { createRemoteCollection } from "./create-remote-collection";
 import { CreateRemoteTypedCollection } from "./types";
 
