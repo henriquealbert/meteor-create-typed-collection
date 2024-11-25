@@ -11,5 +11,5 @@ export function newRemoteCollectionDriver(
     const { mongoUrl } = paramsSchema.parse(params);
 
     // @ts-ignore
-    return new MongoInternals.defaultRemoteCollectionDriver(mongoUrl);
+    return new MongoInternals.RemoteCollectionDriver(mongoUrl, {});
 }
