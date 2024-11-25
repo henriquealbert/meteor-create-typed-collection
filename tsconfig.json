@@ -1,12 +1,16 @@
 {
-  "compilerOptions": {
-    "esModuleInterop": true,
-    "lib": ["DOM", "ESNext"],
-    "module": "ES6",
-    "moduleResolution": "node",
-    "noEmit": true,
-    "strict": true,
-    "target": "ESNext"
-  },
-  "files": ["./src/index.ts"]
+    "compilerOptions": {
+        "esModuleInterop": true,
+        "lib": ["DOM", "ESNext"],
+        "module": "ES6",
+        "moduleResolution": "node",
+        "noEmit": true,
+        "target": "ESNext",
+        "strict": true,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "skipLibCheck": true
+    },
+    "files": ["./src/index.ts"],
+    "exclude": ["node_modules"]
 }

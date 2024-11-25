@@ -12,13 +12,12 @@ The `createTypedCollection` function is at the core of this package. It takes a 
 1. Installation: Make sure to install the necessary dependencies, including Zod and your Meteor Typed Collection package.
 
 ```bash
-meteor add hschmaiske:create-typed-collection
-meteor npm i zod
+meteor npm i zod create-typed-collection
 ```
 
 2. Import the function: Import the createTypedCollection function into your TypeScript file.
 ```typescript
-import { createTypedCollection } from "meteor/hschmaiske:create-typed-collection";
+import { createTypedCollection } from "create-typed-collection";
 ```
 
 3. Define your ZodObject for the collection schema: Create a ZodObject that represents the expected structure of your collection documents.
