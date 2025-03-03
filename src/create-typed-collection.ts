@@ -54,10 +54,6 @@ function validateCollectionParams(
             "You must provide either a name or an instance to create a collection, but not both"
         );
     }
-
-    if (Meteor.isClient) {
-        throw new Meteor.Error("Collections are not allowed on the client");
-    }
 }
 
 /**

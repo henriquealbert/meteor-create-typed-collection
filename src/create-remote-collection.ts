@@ -13,10 +13,6 @@ export const createRemoteCollection = <
     _driver,
     stackName,
 }: CreateRemoteCollectionParams<T, U>) => {
-    if (Meteor.isClient) {
-        throw Error(`${stackName}Connection should be used only in the server`);
-    }
-
     console.info(`connection established with ${stackName} - ${name}`);
 
     return createTypedCollection({
