@@ -1,4 +1,3 @@
-import { Meteor } from "meteor/meteor";
 import { createTypedCollection } from "./create-typed-collection";
 import { CreateRemoteCollectionParams } from "./types";
 import { ZodRawShape } from "zod";

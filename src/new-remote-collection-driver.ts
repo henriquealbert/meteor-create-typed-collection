@@ -6,7 +6,7 @@ const paramsSchema = z.object({
 });
 
 export function newRemoteCollectionDriver(
-    params: Zod.infer<typeof paramsSchema>
+    params: z.infer<typeof paramsSchema>
 ) {
     const { mongoUrl } = paramsSchema.parse(params);
 
